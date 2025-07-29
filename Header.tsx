@@ -78,7 +78,7 @@ export function Header({ onNavigate, onSelectProject }: HeaderProps) {
       <nav className={`nav-menu ${isMenuOpen ? 'is-open' : ''}`} role="dialog" aria-modal="true" aria-labelledby="menu-heading">
         <div className="nav-menu-header">
           <h3 id="menu-heading">Menu</h3>
-          <button className="hamburger-btn" onClick={toggleMenu} aria-label="Close navigation menu">
+          <button className="hamburger-btn" onClick={toggleMenu} aria-label="Close navigation menu" aria-expanded={isMenuOpen}>
             <CloseIcon />
           </button>
         </div>
@@ -88,10 +88,10 @@ export function Header({ onNavigate, onSelectProject }: HeaderProps) {
               Home
             </button>
           </li>
-          <li className="nav-link">
+          <li className="nav-link" aria-expanded={isProjectsSubmenuOpen}>
             <button onClick={() => setIsProjectsSubmenuOpen(!isProjectsSubmenuOpen)} aria-expanded={isProjectsSubmenuOpen}>
               <span>Projects</span>
-              <ChevronIcon isOpen={isProjectsSubmenuOpen} />
+              <ChevronIcon isOpen={isProjectsSubmenuOpen} /> 
             </button>
             <ul className={`submenu ${isProjectsSubmenuOpen ? 'is-open' : ''}`}>
               {PROJECTS.map(project => (
