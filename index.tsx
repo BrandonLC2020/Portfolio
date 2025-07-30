@@ -6,13 +6,13 @@ import { GoogleGenAI } from '@google/genai';
 import { useEffect, useState, useMemo } from 'react';
 import ReactDOM from 'react-dom/client';
 
-import { PROJECTS } from './data';
-import { Project } from './types';
-import { ProjectDetail } from './ProjectDetail';
-import { ProjectGrid } from './ProjectGrid';
-import { FilterControls } from './FilterControls';
-import { Header } from './Header';
-import { AboutMe } from './AboutMe';
+import { PROJECTS } from './src/data';
+import { Project } from './src/types';
+import { ProjectDetail } from './src/components/ProjectDetail';
+import { ProjectGrid } from './src/components/ProjectGrid';
+import { FilterControls } from './src/components/FilterControls';
+import { Header } from './src/components/Header'; 
+import { AboutMe } from './src/components/AboutMe';
 
 function App() {
   const [greeting, setGreeting] = useState('');

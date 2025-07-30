@@ -2,7 +2,7 @@
  * @license
  * SPDX-License-Identifier: Apache-2.0
 */
-import { Project } from './types';
+import { Project } from '../types';
 
 interface ProjectDetailProps {
     project: Project;

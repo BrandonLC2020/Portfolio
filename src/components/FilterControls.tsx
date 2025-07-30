@@ -16,7 +16,7 @@ export function FilterControls({ technologies, activeFilter, onFilterChange }: F
             <button
                 onClick={() => onFilterChange('All')}
                 className={`filter-btn ${activeFilter === 'All' ? 'active' : ''}`}
-                aria-pressed={activeFilter === 'All'}
+                aria-pressed={activeFilter === 'All' ? 'true' : 'false'}
             >
                 All
             </button>
@@ -25,7 +25,7 @@ export function FilterControls({ technologies, activeFilter, onFilterChange }: F
                     key={tech}
                     onClick={() => onFilterChange(tech)}
                     className={`filter-btn ${activeFilter === tech ? 'active' : ''}`}
-                    aria-pressed={activeFilter === tech}
+                    aria-pressed={activeFilter === tech ? 'true' : 'false'}
                 >
                     {tech}
                 </button>
