@@ -9,16 +9,17 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@google/genai": "^0.7.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "@mui/material": "next",
-    "@mui/icons-material": "next",
     "@emotion/react": "^11.11.4",
-    "@emotion/styled": "^11.11.5"
+    "@emotion/styled": "^11.11.5",
+    "@google/genai": "^0.7.0",
+    "@mui/icons-material": "next",
+    "@mui/material": "next",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",
+    "@types/react-dom": "^19.1.7",
     "typescript": "~5.8.2",
     "vite": "^6.2.0"
   }
