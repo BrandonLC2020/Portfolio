@@ -2,6 +2,8 @@
  * @license
  * SPDX-License-Identifier: Apache-2.0
 */
+import Box from '@mui/material/Box';
+import Chip from '@mui/material/Chip';
 
 interface FilterControlsProps {
     technologies: string[];
@@ -9,27 +11,38 @@ interface FilterControlsProps {
     onFilterChange: (filter: string) => void;
 }
 
-// Renders the filter buttons for project technologies.
+// Renders the filter chips for project technologies.
 export function FilterControls({ technologies, activeFilter, onFilterChange }: FilterControlsProps) {
     return (
-        <div className="filter-controls" role="toolbar" aria-label="Project filters">
-            <button
+        <Box
+            component="div"
+            role="toolbar"
+            aria-label="Project filters"
+            sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                flexWrap: 'wrap',
+                gap: 1.5,
+                mb: 4,
+            }}
+        >
+            <Chip
+                label="All"
+                color="primary"
+                variant={activeFilter === 'All' ? 'filled' : 'outlined'}
                 onClick={() => onFilterChange('All')}
-                className={`filter-btn ${activeFilter === 'All' ? 'active' : ''}`}
-                aria-pressed={activeFilter === 'All' ? 'true' : 'false'}
-            >
-                All
-            </button>
+                aria-pressed={activeFilter === 'All'}
+            />
             {technologies.map(tech => (
-                <button
+                <Chip
                     key={tech}
+                    label={tech}
+                    color="primary"
+                    variant={activeFilter === tech ? 'filled' : 'outlined'}
                     onClick={() => onFilterChange(tech)}
-                    className={`filter-btn ${activeFilter === tech ? 'active' : ''}`}
-                    aria-pressed={activeFilter === tech ? 'true' : 'false'}
-                >
-                    {tech}
-                </button>
+                    aria-pressed={activeFilter === tech}
+                />
             ))}
-        </div>
+        </Box>
     );
 }

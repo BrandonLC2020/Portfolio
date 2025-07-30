@@ -5,14 +5,20 @@
 import { GoogleGenAI } from '@google/genai';
 import { useEffect, useState, useMemo } from 'react';
 import ReactDOM from 'react-dom/client';
+import { ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import Container from '@mui/material/Container';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
 
-import { PROJECTS } from './src/data';
-import { Project } from './src/types';
-import { ProjectDetail } from './src/components/ProjectDetail';
-import { ProjectGrid } from './src/components/ProjectGrid';
-import { FilterControls } from './src/components/FilterControls';
-import { Header } from './src/components/Header'; 
-import { AboutMe } from './src/components/AboutMe';
+import { theme } from './theme';
+import { PROJECTS } from './data';
+import { Project } from './types';
+import { ProjectDetail } from './components/ProjectDetail';
+import { ProjectGrid } from './components/ProjectGrid';
+import { FilterControls } from './components/FilterControls';
+import { Header } from './components/Header';
+import { AboutMe } from './components/AboutMe';
 
 function App() {
   const [greeting, setGreeting] = useState('');
@@ -59,10 +65,12 @@ function App() {
   const handleSelectProject = (project: Project) => {
     setSelectedProject(project);
     setView('project');
+    window.scrollTo(0, 0);
   };
 
   const handleNavigate = (targetView: 'grid' | 'about') => {
     setView(targetView);
+    window.scrollTo(0, 0);
   };
 
   const renderContent = () => {
@@ -78,10 +86,14 @@ function App() {
       default:
         return (
           <>
-            <header className="portfolio-header">
-              <h1>My Projects</h1>
-              <p>{greeting || 'Loading a welcome message...'}</p>
-            </header>
+            <Box sx={{ textAlign: 'center', my: 4, borderBottom: 1, borderColor: 'divider', pb: 3 }}>
+              <Typography variant="h1" component="h1" gutterBottom>
+                  My Projects
+              </Typography>
+              <Typography variant="h5" color="text.secondary" sx={{ minHeight: '2.5rem' }}>
+                  {greeting || 'Loading a welcome message...'}
+              </Typography>
+            </Box>
             <FilterControls
               technologies={allTechnologies}
               activeFilter={activeFilter}
@@ -94,15 +106,17 @@ function App() {
   };
 
   return (
-    <>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
       <Header
         onNavigate={handleNavigate}
         onSelectProject={handleSelectProject}
       />
-      <main className="main-content-wrapper">
+      {/* Adjust pt to account for responsive AppBar height */}
+      <Container component="main" maxWidth="lg" sx={{ pt: { xs: '56px', sm: '64px' }, my: 4 }}>
         {renderContent()}
-      </main>
-    </>
+      </Container>
+    </ThemeProvider>
   );
 }
 

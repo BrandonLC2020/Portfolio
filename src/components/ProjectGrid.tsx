@@ -4,6 +4,7 @@
 */
 import { Project } from '../types';
 import { ProjectCard } from './ProjectCard';
+import Grid from '@mui/material/Grid';
 
 interface ProjectGridProps {
     projects: Project[];
@@ -13,10 +14,12 @@ interface ProjectGridProps {
 // Renders the grid of all project cards.
 export function ProjectGrid({ projects, onSelectProject }: ProjectGridProps) {
   return (
-    <div className="project-grid">
-      {projects.map((project: Project) => (
-        <ProjectCard project={project} onSelect={onSelectProject}/>
+    <Grid container spacing={3}>
+      {projects.map(project => (
+        <Grid item key={project.id} xs={12} md={6}>
+          <ProjectCard project={project} onSelect={onSelectProject} />
+        </Grid>
       ))}
-    </div>
+    </Grid>
   );
 }
