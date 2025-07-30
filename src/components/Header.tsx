@@ -88,7 +88,7 @@ export function Header({ onNavigate, onSelectProject }: HeaderProps) {
               Home
             </button>
           </li>
-          <li className="nav-link" aria-expanded={isProjectsSubmenuOpen}>
+          <li className="nav-link">
             <button onClick={() => setIsProjectsSubmenuOpen(!isProjectsSubmenuOpen)} aria-expanded={isProjectsSubmenuOpen}>
               <span>Projects</span>
               <ChevronIcon isOpen={isProjectsSubmenuOpen} /> 
