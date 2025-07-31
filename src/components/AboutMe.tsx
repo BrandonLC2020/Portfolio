@@ -10,7 +10,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import Avatar from '@mui/material/Avatar';
-import Grid from '@mui/material/Grid';
+import { Grid } from '@mui/material';
 import Button from '@mui/material/Button';
 import Skeleton from '@mui/material/Skeleton';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
@@ -32,7 +32,7 @@ export function AboutMe({ onBack }: AboutMeProps) {
                     model: 'gemini-2.5-flash',
                     contents: "Write an engaging 'About Me' section for a senior frontend engineer's portfolio. Mention expertise in React, UI/UX design, and working with modern APIs like Gemini. Keep it professional but approachable. Structure the output into 2-3 paragraphs. Do not use markdown."
                 });
-                setAboutText(response.text);
+                setAboutText(response.text || '');
             } catch (error) {
                 console.error("Failed to generate about me text:", error);
                 setAboutText("A passionate senior frontend engineer with a knack for creating beautiful, functional, and user-centric web applications. With deep expertise in React and a strong eye for UI/UX design, I enjoy turning complex problems into elegant solutions. I'm always excited to work with modern technologies and APIs, including the Gemini API, to build next-generation digital experiences.");
@@ -69,14 +69,14 @@ export function AboutMe({ onBack }: AboutMeProps) {
         <Card sx={{ maxWidth: 800, width: '100%', p: 2 }}>
             <CardContent>
                 <Grid container spacing={3} direction={{ xs: 'column', sm: 'row' }} alignItems="center" sx={{ textAlign: { xs: 'center', sm: 'left'} }}>
-                    <Grid item>
+                    <Grid item xs={12} sm="auto">
                         <Avatar
                             alt="Profile"
                             src="https://storage.googleapis.com/maker-suite-images/profile_placeholder.png"
                             sx={{ width: 150, height: 150, bgcolor: 'primary.main', border: '3px solid', borderColor: 'secondary.main' }}
                         />
                     </Grid>
-                    <Grid item>
+                    <Grid item xs>
                         <Typography variant="h2" component="h2" gutterBottom>About Me</Typography>
                         <Typography variant="h5" color="secondary.main" fontWeight="500">Senior Frontend Engineer</Typography>
                     </Grid>
