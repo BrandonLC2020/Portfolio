@@ -89,12 +89,11 @@ export function ProjectDetail({ project, onBack }: ProjectDetailProps) {
                 <Box>
                     <Typography variant="h4" gutterBottom>Screenshots</Typography>
                     <Grid container spacing={2}>
-                        <Grid item xs={12} sm={6}>
-                            <img src={project.imageUrl} alt={`Primary screenshot for ${project.title}`} style={{ width: '100%', borderRadius: '8px', border: '1px solid #333' }} />
-                        </Grid>
+                            <img src={project.imageUrl} alt={`Primary screenshot for ${project.title}`} className="project-image" />
+                            <img src={project.imageUrl} alt={`Primary screenshot for ${project.title}`} className="project-image-primary" />
                         {project.images?.map((img, index) => (
                             <Grid key={index} item xs={12} sm={6}>
-                                <img src={img} alt={`Screenshot ${index + 1} for ${project.title}`} style={{ width: '100%', borderRadius: '8px', border: '1px solid #333' }} />
+                                <img src={img} alt={`Screenshot ${index + 1} for ${project.title}`} className="project-image" />
                             </Grid>
                         ))}
                     </Grid>
