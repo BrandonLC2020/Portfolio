@@ -4,13 +4,15 @@
 */
 import { Project } from '../types';
 
-import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import Chip from '@mui/material/Chip';
-import Stack from '@mui/material/Stack';
-import Grid from '@mui/material/Grid';
+import {
+    Box,
+    Button,
+    Chip,
+    Grid,
+    Paper,
+    Stack,
+    Typography,
+} from '@mui/material';
 
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import GitHubIcon from '@mui/icons-material/GitHub';
@@ -89,9 +91,7 @@ export function ProjectDetail({ project, onBack }: ProjectDetailProps) {
                 <Box>
                     <Typography variant="h4" gutterBottom>Screenshots</Typography>
                     <Grid container spacing={2}>
-                            <img src={project.imageUrl} alt={`Primary screenshot for ${project.title}`} className="project-image" />
-                            <img src={project.imageUrl} alt={`Primary screenshot for ${project.title}`} className="project-image-primary" />
-                        {project.images?.map((img, index) => (
+                        {project.images.map((img, index) => (
                             <Grid key={index} item xs={12} sm={6}>
                                 <img src={img} alt={`Screenshot ${index + 1} for ${project.title}`} className="project-image" />
                             </Grid>

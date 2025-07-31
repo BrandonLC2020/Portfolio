@@ -6,26 +6,29 @@ import { useState } from 'react';
 import { Project } from '../types';
 import { PROJECTS } from '../data';
 
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Drawer from '@mui/material/Drawer';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
-import Collapse from '@mui/material/Collapse';
+import {
+  AppBar,
+  Box,
+  Toolbar,
+  IconButton,
+  Typography,
+  Drawer,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemText,
+  Collapse,
+  ListItemIcon,
+} from '@mui/material';
 
-import HomeIcon from '@mui/icons-material/Home';
-import MenuIcon from '@mui/icons-material/Menu';
-import ExpandLess from '@mui/icons-material/ExpandLess';
-import ExpandMore from '@mui/icons-material/ExpandMore';
-import PersonIcon from '@mui/icons-material/Person';
-import AppsIcon from '@mui/icons-material/Apps';
-import ListItemIcon from '@mui/material/ListItemIcon';
-
+import {
+  Home as HomeIcon,
+  Menu as MenuIcon,
+  ExpandLess,
+  ExpandMore,
+  Person as PersonIcon,
+  Apps as AppsIcon,
+} from '@mui/icons-material';
 
 interface HeaderProps {
   onNavigate: (page: 'about' | 'grid') => void;

@@ -5,15 +5,17 @@
 import { GoogleGenAI } from '@google/genai';
 import { useEffect, useState } from 'react';
 
-import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
-import Avatar from '@mui/material/Avatar';
-import { Grid } from '@mui/material';
-import Button from '@mui/material/Button';
-import Skeleton from '@mui/material/Skeleton';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import {
+    Avatar,
+    Box,
+    Button,
+    Card,
+    CardContent,
+    Grid,
+    Skeleton,
+    Typography,
+} from '@mui/material';
+import { ArrowBack as ArrowBackIcon } from '@mui/icons-material';
 
 interface AboutMeProps {
     onBack: () => void;
