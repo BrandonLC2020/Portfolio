@@ -60,45 +60,50 @@ export function ProjectDetail({ project, onBack }: ProjectDetailProps) {
         </Typography>
 
         <Box sx={{ my: 4 }}>
-            {project.videoUrl && (
-                <Box mb={4}>
-                    <Typography variant="h4" gutterBottom>Screen Recording</Typography>
-                    <Box sx={{
-                        position: 'relative',
-                        pb: '56.25%', /* 16:9 */
-                        height: 0,
-                        overflow: 'hidden',
-                        borderRadius: 1,
-                        '& iframe': {
-                            position: 'absolute',
-                            top: 0,
-                            left: 0,
-                            width: '100%',
-                            height: '100%',
-                        }
-                    }}>
-                        <iframe
-                            src={project.videoUrl}
-                            title={`Video for ${project.title}`}
-                            frameBorder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowFullScreen>
-                        </iframe>
-                    </Box>
-                </Box>
-            )}
-            {project.images && project.images.length > 0 && (
-                <Box>
-                    <Typography variant="h4" gutterBottom>Screenshots</Typography>
-                    <Grid container spacing={2}>
-                        {project.images.map((img, index) => (
-                            <Grid key={index} item xs={12} sm={6}>
-                                <img src={img} alt={`Screenshot ${index + 1} for ${project.title}`} className="project-image" />
-                            </Grid>
-                        ))}
-                    </Grid>
-                </Box>
-            )}
+        {/* Check for a local video file path instead of a URL */}
+        {project.videoFile && (
+            <Box mb={4}>
+            <Typography variant="h4" gutterBottom>Screen Recording</Typography>
+            {/* This responsive container now targets the <video> element */}
+            <Box sx={{
+                position: 'relative',
+                pb: '56.25%', /* 16:9 aspect ratio */
+                height: 0,
+                overflow: 'hidden',
+                borderRadius: 1,
+                '& video': { // Changed from '& iframe' to '& video'
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                }
+            }}>
+                {/* Replaced iframe with the video tag */}
+                <video
+                controls
+                title={`Video for ${project.title}`}
+                >
+                <source src={project.videoFile} type="video/mp4" />
+                Sorry, your browser doesn't support embedded videos.
+                </video>
+            </Box>
+            </Box>
+        )}
+
+        {/* The rest of your code for images remains the same */}
+        {project.images && project.images.length > 0 && (
+            <Box>
+            <Typography variant="h4" gutterBottom>Screenshots</Typography>
+            <Grid container spacing={2}>
+                {project.images.map((img, index) => (
+                <Grid key={index} item xs={12} sm={6}>
+                    <img src={img} alt={`Screenshot ${index + 1} for ${project.title}`} className="project-image" />
+                </Grid>
+                ))}
+            </Grid>
+            </Box>
+        )}
         </Box>
     </Paper>
   );
