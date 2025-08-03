@@ -4,22 +4,19 @@
 */
 
 // Defines the possible development phases for a project.
-export type ProjectPhase = 'MVP' | 'In Development' | 'Planning Phase' | 'Completed';
-
-// Defines the possible categories for a project.
-export type ProjectCategory = 'AI' | 'Data' | 'Mobile';
+export type ProjectPhase = 'Planning & Requirements Analysis' | 'Design' | 'Implementation' | 'Testing' | 'Deployment' | 'Maintenance & Support';
 
 // Defines the structure for a single project.
 export interface Project {
   id: number;
+  cardIcon: React.ElementType | string; // Icon or image URL for the card
   title: string;
+  inspiration?: string;
   shortDescription: string;
   longDescription:string;
   technologies: string[];
-  imageUrl: string;
-  images: string[];
-  videoUrl:string;
+  images?: string[];
+  videoUrl?:string;
   phase: ProjectPhase;
-  category: ProjectCategory;
   githubUrl: string;
 }

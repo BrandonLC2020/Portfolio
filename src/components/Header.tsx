@@ -83,6 +83,7 @@ export function Header({ onNavigate, onSelectProject }: HeaderProps) {
           <List component="div" disablePadding>
             {PROJECTS.map((project) => (
               <ListItemButton key={project.id} sx={{ pl: 4 }} onClick={() => handleProjectClick(project)}>
+                <ListItemIcon>{project.cardIcon && <project.cardIcon />}</ListItemIcon>
                 <ListItemText primary={project.title} />
               </ListItemButton>
             ))}

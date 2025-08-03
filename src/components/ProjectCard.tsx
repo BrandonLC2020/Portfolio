@@ -22,15 +22,8 @@ interface ProjectCardProps {
   onSelect: (project: Project) => void;
 }
 
-const categoryIcons: { [key: string]: React.ElementType } = {
-    AI: PsychologyIcon,
-    Data: BarChartIcon,
-    Mobile: PhoneIphoneIcon,
-};
-
 // Renders a single project card in the grid.
 export function ProjectCard({ project, onSelect }: ProjectCardProps) {
-    const IconComponent = categoryIcons[project.category];
 
   return (
     <Card sx={{ height: '100%', display: 'flex', transition: 'transform 0.2s', '&:hover': { transform: 'translateY(-5px)' } }}>
@@ -43,8 +36,8 @@ export function ProjectCard({ project, onSelect }: ProjectCardProps) {
                 backgroundColor: 'rgba(0,0,0,0.2)',
                 alignSelf: 'stretch',
             }}>
-                {IconComponent && (
-                    <IconComponent sx={{ fontSize: 48, color: 'primary.main' }} />
+                {project.cardIcon && (
+                    <project.cardIcon sx={{ fontSize: 48, color: 'primary.main' }} />
                 )}
             </Box>
             <CardContent sx={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
