@@ -18,5 +18,6 @@ export interface Project {
   images?: string[];
   video?: string;
   phase: ProjectPhase;
+  phaseDescription?: string;
   githubUrl: string;
 }

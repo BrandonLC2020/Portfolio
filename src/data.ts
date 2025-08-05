@@ -24,7 +24,7 @@ export const PROJECTS: Project[] = [
     title: 'Music Stats',
     cardIcon: ListAltIcon,
     inspiration: 'I love Spotify Wrapped and wanted to create a similar experience for my own music listening habits that I could access anytime. There were other apps that did this, but they were either too expensive or too clunky to use. I wanted something simple, easy to use, effective, and pleasing to the eye.',
-    shortDescription: 'An iOS app that tells you your top songs and artists on Spotify anytime you want.',
+    shortDescription: 'An iOS app that tells you your top songs and artists on Spotify anytime you want',
     longDescription: 'This application leverages Spotify\'s Web API to fetch user listening data and presents it in a visually appealing way. Users can view their top song and artists over different time periods, creating a personalized music experience. It also includes Keychain support for secure storage of access tokens, ensuring user data is protected, and streamlining the login process.',
     technologies: ['XCode', 'Swift', 'SwiftUI', 'Spotify Web API', 'Keychain'],
     video: './screen recordings/Music Stats Screen Recording.mp4',
@@ -37,7 +37,7 @@ export const PROJECTS: Project[] = [
     cardIcon: BackupIcon,
     // TODO: Update inspiration and description
     inspiration: 'I love Spotify Wrapped and wanted to create a similar experience for my own music listening habits that I could access anytime. There were other apps that did this, but they were either too expensive or too clunky to use. I wanted something simple, easy to use, effective, and pleasing to the eye.',
-    shortDescription: 'A script that generates monthly stats for your Spotify listening habits.',
+    shortDescription: 'A script that generates monthly stats for your Spotify listening habits',
     longDescription: 'This script utilizes Spotify\'s Web API to gather and analyze user listening data on a monthly basis. It provides insights into listening trends, top tracks, and artists, allowing users to reflect on their music preferences over time. The script is designed to be run easily and can be integrated into existing workflows.',
     technologies: ['AWS', 'AWS Lambda', 'AWS EventBridge', 'AWS Secrets Manager', 'AWS Aurora', 'Spotify Web API', 'Python', 'MySQL'],
     phase: 'Maintenance & Support',

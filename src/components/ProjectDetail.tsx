@@ -66,6 +66,16 @@ export function ProjectDetail({ project, onBack }: ProjectDetailProps) {
         <Typography variant="body1" paragraph sx={{ lineHeight: 1.7, color: 'text.secondary' }}>
             {project.longDescription}
         </Typography>
+        {project.phaseDescription && (
+            <>
+                <Typography variant='h4' paragraph sx={{ color: 'text.secondary', mb: 2 }}>
+                    Phase Description
+                </Typography>
+                <Typography variant="body1" paragraph sx={{ lineHeight: 1.7, color: 'text.secondary' }}>
+                    {project.phaseDescription}
+                </Typography>
+            </>
+        )}
 
         <Box sx={{ my: 4 }}>
         {/* Check for a local video file path instead of a URL */}
