@@ -8,9 +8,11 @@ import ReactDOM from 'react-dom/client';
 import { ThemeProvider } from '@mui/material/styles';
 import {
   Box,
+  Grid,
   Container,
   CssBaseline,
   Typography,
+  Avatar,
 } from '@mui/material';
 
 import { theme } from './theme';
@@ -23,7 +25,7 @@ import { Header } from './components/Header';
 import { AboutMe } from './components/AboutMe';
 
 function App() {
-  const greeting = 'Welcome to my developer portfolio! Here you can explore my projects and learn more about my work as a passionate software engineer.';
+  const greeting = 'Welcome to my developer portfolio! Here you can explore my projects and learn more about my work as a passionate software engineer. You can also click on my profile picture to the right and learn more about me and my journey in the tech world.';
   const [view, setView] = useState<'grid' | 'project' | 'about'>('grid');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [activeFilter, setActiveFilter] = useState('All');
@@ -65,13 +67,27 @@ function App() {
       default:
         return (
           <>
-            <Box sx={{ textAlign: 'center', my: 4, borderBottom: 1, borderColor: 'divider', pb: 3 }}>
-              <Typography variant="h1" component="h1" gutterBottom>
-                  My Projects
-              </Typography>
-              <Typography variant="h5" color="text.secondary" sx={{ minHeight: '2.5rem' }}>
-                  {greeting || 'Loading a welcome message...'}
-              </Typography>
+            <Box sx={{ textAlign: 'center', my: 4, borderBottom: 1, borderColor: 'divider', pb: 2 }}>
+              <Grid direction='row' container justifyContent='center' alignItems='center' sx={{ mb: 4 }}>
+                <Grid item xs>
+                  <Box>
+                    <Typography variant="h1" component="h1" gutterBottom>
+                        My Projects
+                    </Typography>
+                    <Typography variant="h5" color="text.secondary" sx={{ minHeight: '2.5rem' }}>
+                        {greeting}
+                    </Typography>
+                  </Box>
+                </Grid>
+                <Grid item xs={12} sm="auto">
+                    <Avatar
+                        onClick={() => setView('about')}
+                        alt="Profile"
+                        src="./images/Personal Portrait.JPG"
+                        sx={{ width: 150, height: 150, bgcolor: 'primary.main', border: '3px solid', borderColor: 'secondary.main' }}
+                    />
+                  </Grid>
+              </Grid>
             </Box>
             <FilterControls
               technologies={allTechnologies}

@@ -39,7 +39,7 @@ export function AboutMe({ onBack }: AboutMeProps) {
                         />
                     </Grid>
                     <Grid item xs>
-                        <Typography variant="h2" component="h2" gutterBottom>About Me</Typography>
+                        <Typography variant="h2" component="h2" gutterBottom>Brandon<br/>Lamer-Connolly</Typography>
                         <Typography variant="h5" color="secondary.main" fontWeight="500">New Grad Software Engineer</Typography>
                     </Grid>
                     <Grid item xs={12} sm={5} md={4}>
