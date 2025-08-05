@@ -2,14 +2,16 @@
  * @license
  * SPDX-License-Identifier: Apache-2.0
 */
-import { GoogleGenAI } from '@google/genai';
-import { useEffect, useState, useMemo } from 'react';
+
+import { useState, useMemo } from 'react';
 import ReactDOM from 'react-dom/client';
 import { ThemeProvider } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
-import Container from '@mui/material/Container';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
+import {
+  Box,
+  Container,
+  CssBaseline,
+  Typography,
+} from '@mui/material';
 
 import { theme } from './theme';
 import { PROJECTS } from './data';
@@ -21,33 +23,10 @@ import { Header } from './components/Header';
 import { AboutMe } from './components/AboutMe';
 
 function App() {
-  const [greeting, setGreeting] = useState('');
+  const greeting = 'Welcome to my developer portfolio! Here you can explore my projects and learn more about my work as a passionate software engineer.';
   const [view, setView] = useState<'grid' | 'project' | 'about'>('grid');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [activeFilter, setActiveFilter] = useState('All');
-
-  useEffect(() => {
-    // This effect runs only once on mount to fetch the greeting.
-    const ai = new GoogleGenAI({apiKey: process.env.API_KEY});
-    const generateGreeting = async () => {
-      try {
-        const response = await ai.models.generateContentStream({
-          model: 'gemini-2.5-flash',
-          contents: 'Write a short, welcoming, and professional greeting for a software developer\'s portfolio website. Include a single, relevant emoji like 👨‍💻 or ✨.',
-        });
-
-        let fullGreeting = '';
-        for await (const chunk of response) {
-          fullGreeting += chunk.text;
-        }
-        setGreeting(fullGreeting);
-      } catch(error) {
-        console.error("Failed to fetch greeting:", error);
-        setGreeting("Welcome to my portfolio! ✨"); // Fallback greeting
-      }
-    };
-    generateGreeting();
-  }, []);
 
   const allTechnologies = useMemo(() => {
     const techSet = new Set<string>();
@@ -112,7 +91,6 @@ function App() {
         onNavigate={handleNavigate}
         onSelectProject={handleSelectProject}
       />
-      {/* Adjust pt to account for responsive AppBar height */}
       <Container component="main" maxWidth="lg" sx={{ pt: { xs: '56px', sm: '64px' }, my: 4 }}>
         {renderContent()}
       </Container>

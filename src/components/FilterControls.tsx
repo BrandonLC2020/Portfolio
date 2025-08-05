@@ -2,8 +2,7 @@
  * @license
  * SPDX-License-Identifier: Apache-2.0
 */
-import Box from '@mui/material/Box';
-import Chip from '@mui/material/Chip';
+import { Box, Chip } from '@mui/material';
 
 interface FilterControlsProps {
     technologies: string[];

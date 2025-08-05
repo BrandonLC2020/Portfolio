@@ -54,14 +54,22 @@ export function ProjectDetail({ project, onBack }: ProjectDetailProps) {
             <Chip label={project.phase} color="secondary" sx={{ color: 'background.default', fontWeight: 'bold' }} />
             {project.technologies.map(tag => <Chip key={tag} label={tag} variant="outlined" />)}
         </Stack>
-
+        <Typography variant='h4' paragraph sx={{ color: 'text.secondary', mb: 2 }}>
+            Inspiration
+        </Typography>
+        <Typography variant="body1" paragraph sx={{ lineHeight: 1.7, color: 'text.secondary' }}>
+            {project.inspiration}
+        </Typography>
+        <Typography variant='h4' paragraph sx={{ color: 'text.secondary', mb: 2 }}>
+            Description
+        </Typography>
         <Typography variant="body1" paragraph sx={{ lineHeight: 1.7, color: 'text.secondary' }}>
             {project.longDescription}
         </Typography>
 
         <Box sx={{ my: 4 }}>
         {/* Check for a local video file path instead of a URL */}
-        {project.videoFile && (
+        {project.video && (
             <Box mb={4}>
             <Typography variant="h4" gutterBottom>Screen Recording</Typography>
             {/* This responsive container now targets the <video> element */}
@@ -84,7 +92,7 @@ export function ProjectDetail({ project, onBack }: ProjectDetailProps) {
                 controls
                 title={`Video for ${project.title}`}
                 >
-                <source src={project.videoFile} type="video/mp4" />
+                <source src={project.video} type="video/mp4" />
                 Sorry, your browser doesn't support embedded videos.
                 </video>
             </Box>

@@ -11,13 +11,12 @@ export interface Project {
   id: number;
   cardIcon: React.ElementType | string; // Icon or image URL for the card
   title: string;
-  inspiration?: string;
+  inspiration: string;
   shortDescription: string;
   longDescription:string;
   technologies: string[];
   images?: string[];
-  videoUrl?:string;
-  videoFile?: string;
+  video?: string;
   phase: ProjectPhase;
   githubUrl: string;
 }

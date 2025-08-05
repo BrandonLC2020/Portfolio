@@ -2,8 +2,6 @@
  * @license
  * SPDX-License-Identifier: Apache-2.0
 */
-import { GoogleGenAI } from '@google/genai';
-import { useEffect, useState } from 'react';
 
 import {
     Avatar,
@@ -12,61 +10,23 @@ import {
     Card,
     CardContent,
     Grid,
-    Skeleton,
     Typography,
 } from '@mui/material';
 import { ArrowBack as ArrowBackIcon } from '@mui/icons-material';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import FileDownloadIcon from '@mui/icons-material/FileDownload';
 
 interface AboutMeProps {
     onBack: () => void;
 }
 
 export function AboutMe({ onBack }: AboutMeProps) {
-    const [aboutText, setAboutText] = useState('');
-    const [isLoading, setIsLoading] = useState(true);
-
-    useEffect(() => {
-        const fetchAboutText = async () => {
-            setIsLoading(true);
-            try {
-                const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-                const response = await ai.models.generateContent({
-                    model: 'gemini-2.5-flash',
-                    contents: "Write an engaging 'About Me' section for a senior frontend engineer's portfolio. Mention expertise in React, UI/UX design, and working with modern APIs like Gemini. Keep it professional but approachable. Structure the output into 2-3 paragraphs. Do not use markdown."
-                });
-                setAboutText(response.text || '');
-            } catch (error) {
-                console.error("Failed to generate about me text:", error);
-                setAboutText("A passionate senior frontend engineer with a knack for creating beautiful, functional, and user-centric web applications. With deep expertise in React and a strong eye for UI/UX design, I enjoy turning complex problems into elegant solutions. I'm always excited to work with modern technologies and APIs, including the Gemini API, to build next-generation digital experiences.");
-            } finally {
-                setIsLoading(false);
-            }
-        };
-        fetchAboutText();
-    }, []);
-
-    const renderLoadingState = () => (
-        <Card sx={{ maxWidth: 800, width: '100%', p: 2 }}>
-            <CardContent>
-                <Grid container spacing={3} direction={{ xs: 'column', sm: 'row' }} alignItems="center">
-                    <Grid item>
-                        <Skeleton variant="circular">
-                            <Avatar sx={{ width: 150, height: 150, bgcolor: 'primary.main' }} />
-                        </Skeleton>
-                    </Grid>
-                    <Grid item xs>
-                        <Skeleton variant="text" sx={{ fontSize: '2.5rem' }} />
-                        <Skeleton variant="text" sx={{ fontSize: '1.2rem' }} width="60%" />
-                    </Grid>
-                </Grid>
-                <Box mt={3}>
-                    <Skeleton variant="rectangular" height={80} />
-                    <Skeleton variant="rectangular" height={60} sx={{ mt: 2 }} />
-                </Box>
-            </CardContent>
-        </Card>
-    );
-
+    const aboutText = 
+    'As a dedicated and aspiring software engineer, I recently completed my Bachelors of Science in Computer Science and Artificial Intelligence at Purdue University, with minors in Mathematics and Chinese. My academic journey has provided me with a strong foundation in data structures, algorithms, and systems programming, fueling my passion for tackling complex technological challenges. \n\nMy professional experience is highlighted by my role as a Software Engineering Apprentice at Robosource, where I\'ve contributed to over ten projects, specializing in full-stack development and robotic process automation. I am proficient in a range of modern technologies, including TypeScript, React, C++, Python, and SQL, and have hands-on experience with RESTful APIs, various database systems like PostgreSQL and Firebase, and cloud platforms like Azure. My time as an IT Intern at Hershey Entertainment and Resorts further honed my technical troubleshooting and problem-solving skills in a high-volume, fast-paced environment.\n\nBeyond my technical skills, I have cultivated strong leadership and community-building abilities through my roles as a Residence Education Assistant, where I supervised a large team of resident assistants, and as the President of the Boilermaker Chapter of the National Residence Hall Honorary. These experiences have taught me the importance of collaboration, crisis management, and effective communication. I am eager to apply my diverse skill set and collaborative spirit to a challenging software engineering role where I can contribute to innovative and impactful projects.'
+    const githubProfileUrl = 'https://github.com/BrandonLC2020'
+    const linkedInProfileUrl = 'https://linkedin.com/in/brandonlc2024';
+    const resumeUrl = './files/Portfolio Resume.pdf';
     const renderContent = () => (
         <Card sx={{ maxWidth: 800, width: '100%', p: 2 }}>
             <CardContent>
@@ -74,13 +34,54 @@ export function AboutMe({ onBack }: AboutMeProps) {
                     <Grid item xs={12} sm="auto">
                         <Avatar
                             alt="Profile"
-                            src="https://storage.googleapis.com/maker-suite-images/profile_placeholder.png"
+                            src="./images/Personal Portrait.JPG"
                             sx={{ width: 150, height: 150, bgcolor: 'primary.main', border: '3px solid', borderColor: 'secondary.main' }}
                         />
                     </Grid>
                     <Grid item xs>
                         <Typography variant="h2" component="h2" gutterBottom>About Me</Typography>
-                        <Typography variant="h5" color="secondary.main" fontWeight="500">Senior Frontend Engineer</Typography>
+                        <Typography variant="h5" color="secondary.main" fontWeight="500">New Grad Software Engineer</Typography>
+                    </Grid>
+                    <Grid item xs={12} sm={5} md={4}>
+                        <Grid container spacing={1}>
+                            <Grid item xs={6}>
+                                <Button
+                                    fullWidth
+                                    variant="outlined"
+                                    href={githubProfileUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    startIcon={<GitHubIcon />}
+                                >
+                                    GitHub
+                                </Button>
+                            </Grid>
+                            <Grid item xs={6}>
+                                <Button
+                                    fullWidth
+                                    variant="outlined"
+                                    href={linkedInProfileUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    startIcon={<LinkedInIcon />}
+                                >
+                                    LinkedIn
+                                </Button>
+                            </Grid>
+                            <Grid item xs={12}>
+                                <Button
+                                    fullWidth
+                                    variant="contained"
+                                    component="a" // Render the button as an anchor tag
+                                    href={resumeUrl}
+                                    download // This attribute prompts the user to download the file
+                                    aria-label="Download Resume"
+                                    startIcon={<FileDownloadIcon />}
+                                >
+                                    Download Resume
+                                </Button>
+                            </Grid>
+                        </Grid>
                     </Grid>
                 </Grid>
                 <Box mt={3}>
@@ -96,7 +97,7 @@ export function AboutMe({ onBack }: AboutMeProps) {
 
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2, width: '100%' }}>
-            {isLoading ? renderLoadingState() : renderContent()}
+            {renderContent()}
             <Button
                 variant="contained"
                 onClick={onBack}
