@@ -13,10 +13,6 @@ import {
 } from '@mui/material';
 import { Project } from '../types';
 
-import PsychologyIcon from '@mui/icons-material/Psychology';
-import BarChartIcon from '@mui/icons-material/BarChart';
-import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
-
 interface ProjectCardProps {
   project: Project;
   onSelect: (project: Project) => void;
