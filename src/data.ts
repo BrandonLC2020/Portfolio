@@ -156,7 +156,7 @@ export const PROJECTS: Project[] = [
     shortDescription: 'Yes, the website you\'re currently on! A personal portfolio website to showcase my projects and skills',
     longDescription: 'This portfolio website serves as a comprehensive showcase of my work as a software engineer. It highlights my projects, skills, and experiences, providing visitors with insights into my capabilities and expertise.',
     technologies: ['React', 'TypeScript', 'Material-UI', 'Vite'],
-    phase: 'Deployment',
+    phase: 'Maintenance & Support',
     githubUrl: 'https://github.com/BrandonLC2020/Portfolio',
   } 
 ];

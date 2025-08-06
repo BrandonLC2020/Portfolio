@@ -22,6 +22,7 @@ import { ProjectDetail } from './components/ProjectDetail';
 import { ProjectGrid } from './components/ProjectGrid';
 import { FilterControls } from './components/FilterControls';
 import { Header } from './components/Header';
+import { ProjectPhases } from './components/ProjectPhases';
 import { AboutMe } from './components/AboutMe';
 
 function App() {
@@ -80,6 +81,7 @@ function App() {
                   </Box>
                 </Grid>
                 <Grid item xs={12} sm="auto">
+                    {/* The user's profile picture */}
                     <Avatar
                         onClick={() => setView('about')}
                         alt="Profile"
@@ -89,6 +91,7 @@ function App() {
                   </Grid>
               </Grid>
             </Box>
+            <ProjectPhases projects={PROJECTS} />
             <FilterControls
               technologies={allTechnologies}
               activeFilter={activeFilter}

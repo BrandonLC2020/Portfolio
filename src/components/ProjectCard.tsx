@@ -10,8 +10,10 @@ import {
     Chip,
     Stack,
     Typography,
+    useTheme,
 } from '@mui/material';
 import { Project } from '../types';
+import { getPhaseColors } from '../projectConstants';
 
 interface ProjectCardProps {
   project: Project;
@@ -20,6 +22,8 @@ interface ProjectCardProps {
 
 // Renders a single project card in the grid.
 export function ProjectCard({ project, onSelect }: ProjectCardProps) {
+  const theme = useTheme();
+  const PHASE_COLORS = getPhaseColors(theme);
 
   return (
     <Card sx={{ height: '100%', display: 'flex', transition: 'transform 0.2s', '&:hover': { transform: 'translateY(-5px)' } }}>
@@ -44,7 +48,15 @@ export function ProjectCard({ project, onSelect }: ProjectCardProps) {
                     {project.shortDescription}
                 </Typography>
                 <Stack direction="row" spacing={0.5} useFlexGap flexWrap="wrap">
-                    <Chip label={project.phase} color="secondary" size="small" sx={{ color: 'background.default', fontWeight: 'bold' }} />
+                    <Chip
+                        label={project.phase}
+                        size="small"
+                        sx={{
+                            backgroundColor: PHASE_COLORS[project.phase] || theme.palette.grey[700],
+                            color: theme.palette.getContrastText(PHASE_COLORS[project.phase] || theme.palette.grey[700]),
+                            fontWeight: 'bold',
+                        }} 
+                    />
                     {project.technologies.map(tag =>
                         <Chip key={tag} label={tag} variant="outlined" size="small" />
                     )}

@@ -4,7 +4,7 @@
 */
 
 // Defines the possible development phases for a project.
-export type ProjectPhase = 'Planning & Requirements Analysis' | 'Design' | 'Implementation' | 'Testing' | 'Deployment' | 'Maintenance & Support';
+export type ProjectPhase = 'Planning & Requirements Analysis' | 'Implementation' | 'Deployment' | 'Maintenance & Support';
 
 // Defines the structure for a single project.
 export interface Project {
