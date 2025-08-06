@@ -71,7 +71,6 @@ export function ProjectDetail({ project, onBack }: ProjectDetailProps) {
             <Stack direction="row" spacing={1} sx={{ mb: 2 }} useFlexGap flexWrap="wrap">
                 <Chip
                     label={project.phase}
-                    size="small"
                     sx={{
                         backgroundColor: PHASE_COLORS[project.phase] || theme.palette.grey[700],
                         color: theme.palette.getContrastText(PHASE_COLORS[project.phase] || theme.palette.grey[700]),

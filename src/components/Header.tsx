@@ -29,6 +29,8 @@ import {
   Person as PersonIcon,
   Apps as AppsIcon,
 } from '@mui/icons-material';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 interface HeaderProps {
   onNavigate: (page: 'about' | 'grid') => void;
@@ -36,6 +38,8 @@ interface HeaderProps {
 }
 
 export function Header({ onNavigate, onSelectProject }: HeaderProps) {
+  const githubProfileUrl = 'https://github.com/BrandonLC2020';
+  const linkedInProfileUrl = 'https://linkedin.com/in/brandonlc2024';
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isProjectsSubmenuOpen, setIsProjectsSubmenuOpen] = useState(false);
 
@@ -93,6 +97,28 @@ export function Header({ onNavigate, onSelectProject }: HeaderProps) {
           <ListItemButton onClick={() => handleNavigateClick('about')}>
             <ListItemIcon><PersonIcon /></ListItemIcon>
             <ListItemText primary="About Me" />
+          </ListItemButton>
+        </ListItem>
+        <ListItem disablePadding>
+          <ListItemButton
+            component="a"
+            href={githubProfileUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <ListItemIcon><GitHubIcon /></ListItemIcon>
+            <ListItemText primary="GitHub" />
+          </ListItemButton>
+        </ListItem>
+        <ListItem disablePadding>
+          <ListItemButton
+            component="a"
+            href={linkedInProfileUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <ListItemIcon><LinkedInIcon /></ListItemIcon>
+            <ListItemText primary="LinkedIn" />
           </ListItemButton>
         </ListItem>
       </List>
