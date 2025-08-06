@@ -175,10 +175,11 @@ export function ProjectDetail({ project, onBack }: ProjectDetailProps) {
                 >
                     <CloseIcon />
                 </IconButton>
-                <img
+                <Box
+                    component="img"
                     src={selectedImage || ''}
                     alt="Enlarged screenshot"
-                    style={{ maxHeight: '90vh', maxWidth: '90vw', borderRadius: '4px' }}
+                    sx={{ maxHeight: '90vh', maxWidth: '90vw', borderRadius: '4px' }}
                 />
             </Box>
         </Modal>
