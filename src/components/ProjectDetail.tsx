@@ -2,6 +2,7 @@
  * @license
  * SPDX-License-Identifier: Apache-2.0
 */
+import { useState } from 'react';
 import { Project } from '../types';
 
 import {
@@ -9,6 +10,8 @@ import {
     Button,
     Chip,
     Grid,
+    IconButton,
+    Modal,
     Paper,
     Stack,
     Typography,
@@ -16,6 +19,7 @@ import {
 
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import GitHubIcon from '@mui/icons-material/GitHub';
+import CloseIcon from '@mui/icons-material/Close';
 
 interface ProjectDetailProps {
     project: Project;
@@ -24,6 +28,16 @@ interface ProjectDetailProps {
 
 // Renders the detailed view of a selected project.
 export function ProjectDetail({ project, onBack }: ProjectDetailProps) {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
+  const handleOpenImage = (imgSrc: string) => {
+    setSelectedImage(imgSrc);
+  };
+
+  const handleCloseImage = () => {
+    setSelectedImage(null);
+  };
+
   return (
     <Paper elevation={3} sx={{ p: { xs: 2, md: 4 } }} aria-live="polite">
         <Stack direction={{ xs: 'column', sm: 'row' }} justifyContent="space-between" alignItems="center" spacing={2} sx={{ mb: 3 }}>
@@ -115,14 +129,59 @@ export function ProjectDetail({ project, onBack }: ProjectDetailProps) {
             <Typography variant="h4" gutterBottom>Screenshots</Typography>
             <Grid container spacing={2}>
                 {project.images.map((img, index) => (
-                <Grid key={index} item xs={12} sm={6}>
-                    <img src={img} alt={`Screenshot ${index + 1} for ${project.title}`} className="project-image" />
+                <Grid key={index} item xs={12} sm={6} md={4}>
+                    <Box
+                        component="img"
+                        src={img}
+                        alt={`Screenshot ${index + 1} for ${project.title}`}
+                        sx={{
+                            width: '100%',
+                            height: 'auto',
+                            borderRadius: 1,
+                            cursor: 'pointer',
+                            transition: 'transform 0.3s ease-in-out',
+                            '&:hover': {
+                                transform: 'scale(1.05)',
+                            },
+                        }}
+                        onClick={() => handleOpenImage(img)}
+                    />
                 </Grid>
                 ))}
             </Grid>
             </Box>
         )}
         </Box>
+        <Modal
+            open={selectedImage !== null}
+            onClose={handleCloseImage}
+            aria-labelledby="image-preview"
+            sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+        >
+            <Box sx={{ position: 'relative', outline: 'none' }}>
+                <IconButton
+                    aria-label="close image preview"
+                    onClick={handleCloseImage}
+                    sx={{
+                        position: 'absolute',
+                        top: 8,
+                        right: 8,
+                        color: 'common.white',
+                        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                        '&:hover': {
+                            backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                        },
+                    }}
+                >
+                    <CloseIcon />
+                </IconButton>
+                <img
+                    src={selectedImage || ''}
+                    alt="Enlarged screenshot"
+                    style={{ maxHeight: '90vh', maxWidth: '90vw', borderRadius: '4px' }}
+                />
+            </Box>
+        </Modal>
     </Paper>
   );
 }

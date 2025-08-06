@@ -27,6 +27,11 @@ export const PROJECTS: Project[] = [
     shortDescription: 'An iOS app that tells you your top songs and artists on Spotify anytime you want',
     longDescription: 'This application leverages Spotify\'s Web API to fetch user listening data and presents it in a visually appealing way. Users can view their top song and artists over different time periods, creating a personalized music experience. It also includes Keychain support for secure storage of access tokens, ensuring user data is protected, and streamlining the login process.',
     technologies: ['XCode', 'Swift', 'SwiftUI', 'Spotify Web API', 'Keychain'],
+    images: [
+      './images/Music Stats 1.png',
+      './images/Music Stats 2.png',
+      './images/Music Stats 3.png'
+    ],
     video: './screen recordings/Music Stats Screen Recording.mp4',
     phase: 'Maintenance & Support',
     githubUrl: 'https://github.com/BrandonLC2020/Music-Stats-iOS',
@@ -50,6 +55,11 @@ export const PROJECTS: Project[] = [
     shortDescription: 'A web app for inspecting and testing redirect URIs',
     longDescription: 'This web application allows developers to input their redirect URIs and inspect the parameters being sent. It provides a user-friendly interface for testing and debugging redirect URIs, making it easier to identify issues and ensure proper functionality. It also records a history of inspected URIs for future reference.',
     technologies: ['AWS','AWS S3', 'AWS CloudFront', 'AWS DynamoDB', 'AWS Lambda', 'AWS API Gateway', 'React', 'TypeScript', 'Material-UI', 'Vite'],
+    images: [
+      './images/Redirect Inspector 1.png',
+      './images/Redirect Inspector 2.png'
+    ],
+    video: './screen recordings/Redirect Inspector Screen Recording.mp4',
     phase: 'Maintenance & Support',
     githubUrl: 'https://github.com/BrandonLC2020/PersonalRedirectInspectorWebApp',
   },
@@ -61,6 +71,13 @@ export const PROJECTS: Project[] = [
     shortDescription: 'An iOS app for displaying weather in multiple units',
     longDescription: 'This application allows users to input a location and view the current weather in both Fahrenheit and Celsius. It provides a user-friendly interface, displaying both temperature units, making it easier to understand the weather regardless of the measurement system used. Additionally, it includes features like location search and saving favorite locations using Firebase Firestore for persistent storage. Furthermore, it includes a temperature conversion tool, allowing users to convert temperatures between Fahrenheit and Celsius easily.',
     technologies: ['XCode', 'Swift', 'SwiftUI', 'WeatherKit', 'CoreLocation', 'Firebase', 'Firestore'],
+    images: [
+      './images/Dual Weather 1.png',
+      './images/Dual Weather 2.png',
+      './images/Dual Weather 3.png',
+      './images/Dual Weather 4.png',
+      './images/Dual Weather 5.png'
+    ],
     video: './screen recordings/Dual Weather Screen Recording.mp4',
     phase: 'Maintenance & Support',
     githubUrl: 'https://github.com/BrandonLC2020/Dual-Weather-iOS',
