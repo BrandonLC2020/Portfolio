@@ -12,10 +12,12 @@ import {
     Grid,
     Typography,
 } from '@mui/material';
-import { ArrowBack as ArrowBackIcon } from '@mui/icons-material';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import FileDownloadIcon from '@mui/icons-material/FileDownload';
+import {
+    ArrowBack as ArrowBackIcon,
+    FileDownload as FileDownloadIcon,
+    GitHub as GitHubIcon,
+    LinkedIn as LinkedInIcon,
+} from '@mui/icons-material';
 
 interface AboutMeProps {
     onBack: () => void;
