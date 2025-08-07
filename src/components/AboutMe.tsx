@@ -34,7 +34,7 @@ export function AboutMe({ onBack }: AboutMeProps) {
                     <Grid item xs={12} sm="auto">
                         <Avatar
                             alt="Profile"
-                            src="./images/Personal Portrait.JPG"
+                            src="./images/Personal Portrait.jpg"
                             sx={{ width: 150, height: 150, bgcolor: 'primary.main', border: '3px solid', borderColor: 'secondary.main' }}
                         />
                     </Grid>
