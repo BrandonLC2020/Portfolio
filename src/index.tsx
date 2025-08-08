@@ -18,12 +18,14 @@ import {
 import { theme } from './theme';
 import { PROJECTS } from './data';
 import { Project } from './types';
-import { ProjectDetail } from './components/ProjectDetail';
-import { ProjectGrid } from './components/ProjectGrid';
-import { FilterControls } from './components/FilterControls';
-import { Header } from './components/Header';
-import { ProjectPhases } from './components/ProjectPhases';
-import { AboutMe } from './components/AboutMe';
+import {
+  AboutMe,
+  FilterControls,
+  Header,
+  ProjectDetail,
+  ProjectGrid,
+  ProjectPhases,
+} from './components';
 
 function App() {
   const greeting = 'Welcome to my developer portfolio! Here you can explore my projects and learn more about my work as a passionate software engineer. You can also click on my profile picture to the right and learn more about me and my journey in the tech world.';
