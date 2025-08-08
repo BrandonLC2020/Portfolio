@@ -86,7 +86,7 @@ function App() {
                     <Avatar
                         onClick={() => setView('about')}
                         alt="Profile"
-                        src="./images/Personal Portrait.jpg"
+                        src="./images/Personal Portrait.png"
                         sx={{ width: 150, height: 150, bgcolor: 'primary.main', border: '3px solid', borderColor: 'secondary.main' }}
                     />
                   </Grid>
