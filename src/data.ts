@@ -90,7 +90,15 @@ export const PROJECTS: Project[] = [
     shortDescription: 'An iOS app for organizing music you want to listen to',
     longDescription: 'This application allows users to create and manage a collection of artists, albums, and songs they want to listen to. It provides a user-friendly interface for searching, adding, and removing, artists, albums, and songs from the ListenList, making it easier to curate and collect music to listen to without cluttering the main library.',
     technologies: ['XCode', 'Swift', 'SwiftUI', 'Spotify Web API', 'Keychain', 'Firebase', 'Firestore'],
-    phase: 'Implementation',
+    images: [
+      './images/ListenList 1.png',
+      './images/ListenList 2.png',
+      './images/ListenList 3.png',
+      './images/ListenList 4.png',
+      './images/ListenList 5.png'
+    ],
+    video: './screen recordings/ListenList Screen Recording.mp4',
+    phase: 'Maintenance & Support',
     githubUrl: 'https://github.com/BrandonLC2020/ListenList-iOS',
   },   
   {
