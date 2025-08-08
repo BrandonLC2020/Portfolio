@@ -81,7 +81,6 @@ function App() {
                   </Box>
                 </Grid>
                 <Grid item xs={12} sm="auto">
-                    {/* The user's profile picture */}
                     <Avatar
                         onClick={() => setView('about')}
                         alt="Profile"
