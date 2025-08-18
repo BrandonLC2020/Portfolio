@@ -120,7 +120,7 @@ export const PROJECTS: Project[] = [
     shortDescription: 'An iOS app for displaying and controlling the currently playing song in StandBy mode',
     longDescription: 'This application allows users to see the currently playing song from Spotify in StandBy mode on their iPhone. It provides a simple interface for displaying the song information, making it easier for users to quickly identify and change the song without unlocking their phone or opening the Spotify app.',
     technologies: ['XCode', 'Swift', 'SwiftUI', 'Spotify iOS SDK'],
-    phase: 'Planning & Requirements Analysis',
+    phase: 'Implementation',
     githubUrl: 'https://github.com/BrandonLC2020/NowPlaying',
   },
   {
