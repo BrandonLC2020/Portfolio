@@ -28,7 +28,7 @@ import {
 } from './components';
 
 function App() {
-  const greeting = 'Welcome to my developer portfolio! Here you can explore my projects and learn more about my work as a passionate software engineer. You can also click on my profile picture to the right and learn more about me and my journey in the tech world.';
+  const greeting = 'Welcome to my developer portfolio! Here you can explore my personal projects and learn more about my work as a passionate software engineer. You can also click on my profile picture to the right and learn more about me and my journey in the tech world.';
   const [view, setView] = useState<'grid' | 'project' | 'about'>('grid');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [activeFilter, setActiveFilter] = useState('All');
