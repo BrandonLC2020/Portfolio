@@ -108,7 +108,7 @@ export const PROJECTS: Project[] = [
     inspiration: 'I love college basketball and wanted to create a tool that provides detailed statistics and insights about NCAA Men\'s Basketball. I wanted to practice building a backend service using Java and Spring Boot, as well as creating a frontend using React and TypeScript. I want this app to be a useful resource for college basketball fans, analysts, and enthusiasts who want to explore and analyze season tournament data.',
     shortDescription: 'A web app for exploring NCAA Men\'s Basketball statistics',
     longDescription: 'This web application allows users to explore and analyze NCAA Men\'s Basketball statistics, including team and player performance data. It provides a user-friendly interface for visualizing stats, making it easier for fans and analysts to gain insights into the game.',
-    technologies: ['Java', 'Maven', 'Spring Boot', 'React', 'TypeScript', 'Material UI', 'Plotly', 'College Basketball Data API'],
+    technologies: ['Java', 'Maven', 'Spring Boot', 'React', 'TypeScript', 'Material-UI', 'Plotly', 'College Basketball Data API'],
     phase: 'Implementation',
     githubUrl: 'https://github.com/BrandonLC2020/MarchMadnessStats',
   },
